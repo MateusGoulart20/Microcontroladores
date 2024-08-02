@@ -1,0 +1,4 @@
+>>> Warning 202 "main.c" Line 95(45,48): Variable never used:   max
+>>> Warning 202 "main.c" Line 95(54,57): Variable never used:   min
+      Memory usage:   ROM=11%      RAM=3% - 8%
+      0 Errors,  2 Warnings.

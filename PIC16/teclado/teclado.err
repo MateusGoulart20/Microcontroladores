@@ -1,0 +1,15 @@
+*** Error 18 "teclado.c" Line 21(10,21): File can not be opened
+    Not in local "C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\teclado\mod_lcd.c"
+    Not in "C:\Users\mateu\Desktop\2023-2\Microcontroladores\PICC\Drivers\mod_lcd.c"
+    Not in "C:\Users\mateu\Desktop\2023-2\Microcontroladores\PICC\Devices\mod_lcd.c"
+*** Error 18 "teclado.c" Line 22(10,28): File can not be opened
+    Not in local "C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\teclado\kbd_ext_board2.c"
+    Not in "C:\Users\mateu\Desktop\2023-2\Microcontroladores\PICC\Drivers\kbd_ext_board2.c"
+    Not in "C:\Users\mateu\Desktop\2023-2\Microcontroladores\PICC\Devices\kbd_ext_board2.c"
+*** Error 12 "teclado.c" Line 35(9,10): Undefined identifier  -- lcd_ini
+*** Error 12 "teclado.c" Line 37(10,21): Undefined identifier   lcd_escreve
+*** Error 12 "teclado.c" Line 39(10,21): Undefined identifier   lcd_escreve
+*** Error 12 "teclado.c" Line 45(16,17): Undefined identifier  -- tc_tecla
+*** Error 12 "teclado.c" Line 48(10,21): Undefined identifier   lcd_escreve
+*** Error 12 "teclado.c" Line 50(16,27): Undefined identifier   lcd_escreve
+      8 Errors,  0 Warnings.

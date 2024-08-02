@@ -1,0 +1,99 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004     @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @TRIS_C
+021     MAIN.valor
+022     @PRINTF_U_9600_62_63.P1
+022     lcd_ini.conta
+022     @PSTRINGCN7_83.P1
+022     @PRINTF_U_83.P2
+022     @PSTRINGC7_83.@SCRATCH1
+023     @PRINTF_U_9600_62_63.P1
+023     @PRINTF_U_83.P2
+023     lcd_ini.@SCRATCH1
+023     @PSTRINGC7_83.@SCRATCH2
+023     @PSTRINGCN7_83.@SCRATCH1
+024     @DIV88.P1
+024     @PSTRINGC7_83.@SCRATCH3
+024     @PSTRINGCN7_83.@SCRATCH2
+025     @DIV88.P1
+025     @PSTRINGCN7_83.@SCRATCH3
+026     lcd_escreve.c
+026     @DIV88.@SCRATCH1
+027     @delay_ms1.P1
+027     lcd_pos_xy.x
+028     lcd_pos_xy.y
+029     lcd_pos_xy.endereco
+02A     lcd_pos_xy.@SCRATCH1
+02B     lcd_envia_byte.endereco
+02C     lcd_envia_byte.dado
+02D     lcd_envia_byte.@SCRATCH1
+02E     lcd_envia_nibble.dado
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+0019  @delay_ms1
+0004  INI_LCD
+002D  lcd_envia_nibble
+0054  lcd_envia_byte
+0075  lcd_ini
+00CC  lcd_pos_xy
+00B2  lcd_escreve
+0208  MAIN
+000C  @const93
+00EA  @PSTRINGC7_83
+0013  @const95
+0132  @PSTRINGCN7_83
+0182  @DIV88
+0197  @PRINTF_U_83
+01CE  @PRINTF_U_9600_62_63
+0208  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\serial_int_stram_LCD\
+
+Project Files:
+    serial_int_stram_LCD.c
+    ..\..\PICC\Devices\16F877A.h
+    ..\..\PICC\Drivers\mod_lcd.c
+
+Units:
+    C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\serial_int_stram_LCD\serial_int_stram_LCD (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      serial_int_stram_LCD.err
+    Ext Symbols: serial_int_stram_LCD.esym
+    INHX8:       serial_int_stram_LCD.hex
+    Symbols:     serial_int_stram_LCD.sym
+    List:        serial_int_stram_LCD.lst
+    Debug/COFF:  serial_int_stram_LCD.cof
+    Project:     serial_int_stram_LCD.PJT
+    Call Tree:   serial_int_stram_LCD.tre
+    Statistics:  serial_int_stram_LCD.sta

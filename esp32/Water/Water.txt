@@ -1,0 +1,49 @@
+const int sensor = T5;
+const int ledPin = T3;
+const int anaCond = 34; // + valor = desconectado -> - valor = curto
+const int anaLux = 35; // - valor = + luz -> + valor = - luz
+
+int minLux, maxLux, minCond, maxCond, trans;
+
+void setup(){
+  Serial.begin(115200);
+  pinMode(ledPin, OUTPUT);
+  delay(1000);
+  trans = analogRead(anaLux);
+  minLux = trans;
+  maxLux = trans;
+  trans = analogRead(anaCond);
+  minCond = trans;
+  maxCond = trans;
+}
+void loop(){
+  trans = analogRead(anaLux);
+  if(trans > maxLux )maxLux = trans;
+  if(trans < minLux )minLux = trans;
+  trans = analogRead(anaCond);
+  if(trans > maxCond )maxCond = trans;
+  if(trans < minCond )minCond = trans;
+  //Serial.println(touchRead(sensor));
+  //Serial.println(analogRead(anaCond));
+  Serial.println();
+  Serial.print("  Lux: ");
+  Serial.print(analogRead(anaLux));
+  Serial.print("  min: ");
+  Serial.print(minLux);
+  Serial.print("  max: ");
+  Serial.print(maxLux);
+  Serial.print("    Cond: ");
+  Serial.print(analogRead(anaCond));
+  Serial.print("  min: ");
+  Serial.print(minCond);
+  Serial.print("  max: ");
+  Serial.print(maxCond);
+  Serial.println();
+  /*
+  if(touchRead(sensor) > 30){
+    digitalWrite(ledPin, HIGH);
+  }else{
+    digitalWrite(ledPin, LOW);
+  }*/
+  delay(100);
+}

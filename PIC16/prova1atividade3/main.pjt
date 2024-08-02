@@ -1,0 +1,26 @@
+[PROJECT]
+Target=C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\prova1atividade3\main.hex
+Development_Mode=
+Processor_Text=PIC16F877A
+ToolSuite=CCS
+Processor=0x877A
+[C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\prova1atividade3\main]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[mru-list]
+1=C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\prova1atividade3\main.c
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+[Units]
+Link=0
+Count=1
+1=C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\prova1atividade3\main
+[Opened Files]
+1=main.c
+2=..\prova1atividade2\main.c
+3=
+4=

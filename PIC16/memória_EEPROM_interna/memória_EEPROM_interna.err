@@ -1,0 +1,7 @@
+*** Error 18 "memória_EEPROM_interna.c" Line 23(10,71): File can not be opened
+    Not in local "C:\Alberto\IFMT 2023-II\Microcontroladores\Driver\mod_lcd.c"
+*** Error 12 "memória_EEPROM_interna.c" Line 37(12,13): Undefined identifier  -- lcd_ini
+*** Error 12 "memória_EEPROM_interna.c" Line 41(12,23): Undefined identifier   lcd_escreve
+*** Error 12 "memória_EEPROM_interna.c" Line 48(15,26): Undefined identifier   lcd_escreve
+*** Error 12 "memória_EEPROM_interna.c" Line 50(15,26): Undefined identifier   lcd_escreve
+      5 Errors,  0 Warnings.

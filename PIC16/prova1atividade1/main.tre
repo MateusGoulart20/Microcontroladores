@@ -1,0 +1,16 @@
+읕main
+   읕MAIN  0/166  Ram=4
+      쳐??0??
+      쳐@ITOF  0/31  Ram=2
+      쳐@MULFF  0/119  Ram=13
+      쳐@ADDFF  0/323  Ram=16
+      쳐@SFTOI  0/33  Ram=4
+      읕setPosi  0/166  Ram=2
+         쳐@delay_ms1  0/20  Ram=1
+         쳐@delay_ms1  0/20  Ram=1
+         쳐@delay_ms1  0/20  Ram=1
+         쳐@delay_ms1  0/20  Ram=1
+         쳐@delay_ms1  0/20  Ram=1
+         쳐@delay_ms1  0/20  Ram=1
+         쳐@delay_ms1  0/20  Ram=1
+         읕@delay_ms1  0/20  Ram=1

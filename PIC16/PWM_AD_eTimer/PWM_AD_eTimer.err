@@ -1,0 +1,5 @@
+>>> Warning 202 "PWM_AD_eTimer.c" Line 17(16,19): Variable never used:   ton
+>>> Warning 202 "PWM_AD_eTimer.c" Line 17(22,26): Variable never used:   toff
+>>> Warning 202 "PWM_AD_eTimer.c" Line 38(10,16): Variable never used:   tensao
+      Memory usage:   ROM=6%      RAM=7% - 12%
+      0 Errors,  3 Warnings.

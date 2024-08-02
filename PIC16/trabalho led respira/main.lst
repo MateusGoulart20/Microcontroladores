@@ -1,0 +1,728 @@
+CCS PCM C Compiler, Version 4.104, 5967               26-out-23 15:53
+
+               Filename: C:\Users\mateu\Desktop\2023-2\Microcontroladores\PCW\trabalho led respira\main.lst
+
+               ROM used: 579 words (7%)
+                         Largest free fragment is 2048
+               RAM used: 6 (2%) at main() level
+                         7 (2%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   019
+0003:  NOP
+.................... #include <16F877A.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+.................... #list 
+....................  
+.................... #device adc=8 
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES HS                       //High speed Osc (> 4mhz FOR PCM/PCH) (>10mhz for PCD) 
+.................... #FUSES NOPUT                    //No Power Up Timer 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NODEBUG                  //No Debug mode FOR ICD 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used FOR I/O 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES NOWRT                    //Program memory not write protected 
+.................... #FUSES RESERVED                 //Used to set the reserved FUSE bits 
+.................... #use delay(clock=6000000) 
+*
+0004:  MOVLW  21
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  F1
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  NOP
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  RETURN
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+....................  
+....................       VOID main() 
+....................    { 
+0019:  CLRF   04
+001A:  BCF    03.7
+001B:  MOVLW  1F
+001C:  ANDWF  03,F
+001D:  MOVLW  26
+001E:  BSF    03.5
+001F:  MOVWF  19
+0020:  MOVLW  A6
+0021:  MOVWF  18
+0022:  MOVLW  90
+0023:  BCF    03.5
+0024:  MOVWF  18
+0025:  BSF    03.5
+0026:  BSF    1F.0
+0027:  BSF    1F.1
+0028:  BSF    1F.2
+0029:  BCF    1F.3
+002A:  MOVLW  07
+002B:  MOVWF  1C
+....................          setup_adc_ports(AN0_AN1_AN3); 
+*
+002F:  BSF    03.5
+0030:  BCF    1F.0
+0031:  BCF    1F.1
+0032:  BSF    1F.2
+0033:  BCF    1F.3
+....................    setup_adc(ADC_CLOCK_DIV_16); 
+0034:  BSF    1F.6
+0035:  BCF    03.5
+0036:  BSF    1F.6
+0037:  BCF    1F.7
+0038:  BSF    03.5
+0039:  BCF    1F.7
+003A:  BCF    03.5
+003B:  BSF    1F.0
+....................    setup_psp(PSP_DISABLED); 
+003C:  BSF    03.5
+003D:  BCF    09.4
+....................    setup_spi(SPI_SS_DISABLED); 
+003E:  BCF    03.5
+003F:  BCF    14.5
+0040:  BCF    20.5
+0041:  MOVF   20,W
+0042:  BSF    03.5
+0043:  MOVWF  07
+0044:  BCF    03.5
+0045:  BSF    20.4
+0046:  MOVF   20,W
+0047:  BSF    03.5
+0048:  MOVWF  07
+0049:  BCF    03.5
+004A:  BCF    20.3
+004B:  MOVF   20,W
+004C:  BSF    03.5
+004D:  MOVWF  07
+004E:  MOVLW  01
+004F:  BCF    03.5
+0050:  MOVWF  14
+0051:  MOVLW  00
+0052:  BSF    03.5
+0053:  MOVWF  14
+....................    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1); 
+0054:  MOVF   01,W
+0055:  ANDLW  C7
+0056:  IORLW  08
+0057:  MOVWF  01
+....................    setup_timer_1(T1_DISABLED); 
+0058:  BCF    03.5
+0059:  CLRF   10
+....................    setup_timer_2(T2_DIV_BY_16,255,1); 
+005A:  MOVLW  00
+005B:  MOVWF  78
+005C:  IORLW  06
+005D:  MOVWF  12
+005E:  MOVLW  FF
+005F:  BSF    03.5
+0060:  MOVWF  12
+....................    setup_ccp1(CCP_PWM); 
+0061:  BCF    03.5
+0062:  BCF    20.2
+0063:  MOVF   20,W
+0064:  BSF    03.5
+0065:  MOVWF  07
+0066:  BCF    03.5
+0067:  BCF    07.2
+0068:  MOVLW  0C
+0069:  MOVWF  17
+....................     
+....................    setup_comparator(NC_NC_NC_NC); 
+006A:  MOVLW  07
+006B:  BSF    03.5
+006C:  MOVWF  1C
+006D:  MOVF   05,W
+006E:  MOVWF  05
+006F:  MOVLW  04
+0070:  MOVWF  77
+0071:  DECFSZ 77,F
+0072:  GOTO   071
+0073:  GOTO   074
+0074:  MOVF   1C,W
+0075:  BCF    03.5
+0076:  BCF    0D.6
+....................    setup_vref(FALSE); 
+0077:  BSF    03.5
+0078:  CLRF   1D
+....................     
+....................    set_adc_channel(0); 
+0079:  MOVLW  00
+007A:  MOVWF  78
+007B:  BCF    03.5
+007C:  MOVF   1F,W
+007D:  ANDLW  C7
+007E:  IORWF  78,W
+007F:  MOVWF  1F
+....................    delay_us(50); 
+0080:  MOVLW  18
+0081:  MOVWF  77
+0082:  DECFSZ 77,F
+0083:  GOTO   082
+0084:  GOTO   085
+....................    
+....................  
+....................    //TODO: USER CODE!! 
+....................    WHILE(true) 
+....................    { 
+....................       set_pwm1_duty(3);delay_ms(25); 
+0085:  MOVLW  03
+0086:  MOVWF  15
+0087:  MOVLW  19
+0088:  MOVWF  21
+0089:  CALL   004
+....................       set_pwm1_duty(4);delay_ms(25); 
+008A:  MOVLW  04
+008B:  MOVWF  15
+008C:  MOVLW  19
+008D:  MOVWF  21
+008E:  CALL   004
+....................       set_pwm1_duty(5);delay_ms(25); 
+008F:  MOVLW  05
+0090:  MOVWF  15
+0091:  MOVLW  19
+0092:  MOVWF  21
+0093:  CALL   004
+....................       set_pwm1_duty(6);delay_ms(25); 
+0094:  MOVLW  06
+0095:  MOVWF  15
+0096:  MOVLW  19
+0097:  MOVWF  21
+0098:  CALL   004
+....................       set_pwm1_duty(7);delay_ms(25); 
+0099:  MOVLW  07
+009A:  MOVWF  15
+009B:  MOVLW  19
+009C:  MOVWF  21
+009D:  CALL   004
+....................       set_pwm1_duty(8);delay_ms(25); 
+009E:  MOVLW  08
+009F:  MOVWF  15
+00A0:  MOVLW  19
+00A1:  MOVWF  21
+00A2:  CALL   004
+....................       set_pwm1_duty(11);delay_ms(25); 
+00A3:  MOVLW  0B
+00A4:  MOVWF  15
+00A5:  MOVLW  19
+00A6:  MOVWF  21
+00A7:  CALL   004
+....................       set_pwm1_duty(13);delay_ms(25); 
+00A8:  MOVLW  0D
+00A9:  MOVWF  15
+00AA:  MOVLW  19
+00AB:  MOVWF  21
+00AC:  CALL   004
+....................       set_pwm1_duty(15);delay_ms(25); 
+00AD:  MOVLW  0F
+00AE:  MOVWF  15
+00AF:  MOVLW  19
+00B0:  MOVWF  21
+00B1:  CALL   004
+....................       set_pwm1_duty(17);delay_ms(25); 
+00B2:  MOVLW  11
+00B3:  MOVWF  15
+00B4:  MOVLW  19
+00B5:  MOVWF  21
+00B6:  CALL   004
+....................       set_pwm1_duty(20);delay_ms(25); 
+00B7:  MOVLW  14
+00B8:  MOVWF  15
+00B9:  MOVLW  19
+00BA:  MOVWF  21
+00BB:  CALL   004
+....................       set_pwm1_duty(24);delay_ms(25); 
+00BC:  MOVLW  18
+00BD:  MOVWF  15
+00BE:  MOVLW  19
+00BF:  MOVWF  21
+00C0:  CALL   004
+....................       set_pwm1_duty(28);delay_ms(25); 
+00C1:  MOVLW  1C
+00C2:  MOVWF  15
+00C3:  MOVLW  19
+00C4:  MOVWF  21
+00C5:  CALL   004
+....................       set_pwm1_duty(31);delay_ms(25); 
+00C6:  MOVLW  1F
+00C7:  MOVWF  15
+00C8:  MOVLW  19
+00C9:  MOVWF  21
+00CA:  CALL   004
+....................       set_pwm1_duty(34);delay_ms(25); 
+00CB:  MOVLW  22
+00CC:  MOVWF  15
+00CD:  MOVLW  19
+00CE:  MOVWF  21
+00CF:  CALL   004
+....................       set_pwm1_duty(39);delay_ms(25); 
+00D0:  MOVLW  27
+00D1:  MOVWF  15
+00D2:  MOVLW  19
+00D3:  MOVWF  21
+00D4:  CALL   004
+....................       set_pwm1_duty(44);delay_ms(25); 
+00D5:  MOVLW  2C
+00D6:  MOVWF  15
+00D7:  MOVLW  19
+00D8:  MOVWF  21
+00D9:  CALL   004
+....................       set_pwm1_duty(48);delay_ms(25); 
+00DA:  MOVLW  30
+00DB:  MOVWF  15
+00DC:  MOVLW  19
+00DD:  MOVWF  21
+00DE:  CALL   004
+....................       set_pwm1_duty(53);delay_ms(25); 
+00DF:  MOVLW  35
+00E0:  MOVWF  15
+00E1:  MOVLW  19
+00E2:  MOVWF  21
+00E3:  CALL   004
+....................       set_pwm1_duty(58);delay_ms(25); 
+00E4:  MOVLW  3A
+00E5:  MOVWF  15
+00E6:  MOVLW  19
+00E7:  MOVWF  21
+00E8:  CALL   004
+....................       set_pwm1_duty(63);delay_ms(25); 
+00E9:  MOVLW  3F
+00EA:  MOVWF  15
+00EB:  MOVLW  19
+00EC:  MOVWF  21
+00ED:  CALL   004
+....................       set_pwm1_duty(70);delay_ms(25); 
+00EE:  MOVLW  46
+00EF:  MOVWF  15
+00F0:  MOVLW  19
+00F1:  MOVWF  21
+00F2:  CALL   004
+....................       set_pwm1_duty(78);delay_ms(25); 
+00F3:  MOVLW  4E
+00F4:  MOVWF  15
+00F5:  MOVLW  19
+00F6:  MOVWF  21
+00F7:  CALL   004
+....................       set_pwm1_duty(85);delay_ms(25); 
+00F8:  MOVLW  55
+00F9:  MOVWF  15
+00FA:  MOVLW  19
+00FB:  MOVWF  21
+00FC:  CALL   004
+....................       set_pwm1_duty(99);delay_ms(25); 
+00FD:  MOVLW  63
+00FE:  MOVWF  15
+00FF:  MOVLW  19
+0100:  MOVWF  21
+0101:  CALL   004
+....................       set_pwm1_duty(113);delay_ms(25);      
+0102:  MOVLW  71
+0103:  MOVWF  15
+0104:  MOVLW  19
+0105:  MOVWF  21
+0106:  CALL   004
+....................       set_pwm1_duty(127);delay_ms(25); 
+0107:  MOVLW  7F
+0108:  MOVWF  15
+0109:  MOVLW  19
+010A:  MOVWF  21
+010B:  CALL   004
+....................       set_pwm1_duty(131);delay_ms(25); 
+010C:  MOVLW  83
+010D:  MOVWF  15
+010E:  MOVLW  19
+010F:  MOVWF  21
+0110:  CALL   004
+....................       set_pwm1_duty(136);delay_ms(25); 
+0111:  MOVLW  88
+0112:  MOVWF  15
+0113:  MOVLW  19
+0114:  MOVWF  21
+0115:  CALL   004
+....................       set_pwm1_duty(140);delay_ms(25); 
+0116:  MOVLW  8C
+0117:  MOVWF  15
+0118:  MOVLW  19
+0119:  MOVWF  21
+011A:  CALL   004
+....................       set_pwm1_duty(146);delay_ms(25); 
+011B:  MOVLW  92
+011C:  MOVWF  15
+011D:  MOVLW  19
+011E:  MOVWF  21
+011F:  CALL   004
+....................       set_pwm1_duty(152);delay_ms(25); 
+0120:  MOVLW  98
+0121:  MOVWF  15
+0122:  MOVLW  19
+0123:  MOVWF  21
+0124:  CALL   004
+....................       set_pwm1_duty(159);delay_ms(25); 
+0125:  MOVLW  9F
+0126:  MOVWF  15
+0127:  MOVLW  19
+0128:  MOVWF  21
+0129:  CALL   004
+....................       set_pwm1_duty(167);delay_ms(25); 
+012A:  MOVLW  A7
+012B:  MOVWF  15
+012C:  MOVLW  19
+012D:  MOVWF  21
+012E:  CALL   004
+....................       set_pwm1_duty(176);delay_ms(25); 
+012F:  MOVLW  B0
+0130:  MOVWF  15
+0131:  MOVLW  19
+0132:  MOVWF  21
+0133:  CALL   004
+....................       set_pwm1_duty(184);delay_ms(25); 
+0134:  MOVLW  B8
+0135:  MOVWF  15
+0136:  MOVLW  19
+0137:  MOVWF  21
+0138:  CALL   004
+....................       set_pwm1_duty(189);delay_ms(25); 
+0139:  MOVLW  BD
+013A:  MOVWF  15
+013B:  MOVLW  19
+013C:  MOVWF  21
+013D:  CALL   004
+....................       set_pwm1_duty(194);delay_ms(25); 
+013E:  MOVLW  C2
+013F:  MOVWF  15
+0140:  MOVLW  19
+0141:  MOVWF  21
+0142:  CALL   004
+....................       set_pwm1_duty(199);delay_ms(25); 
+0143:  MOVLW  C7
+0144:  MOVWF  15
+0145:  MOVLW  19
+0146:  MOVWF  21
+0147:  CALL   004
+....................       set_pwm1_duty(207);delay_ms(25); 
+0148:  MOVLW  CF
+0149:  MOVWF  15
+014A:  MOVLW  19
+014B:  MOVWF  21
+014C:  CALL   004
+....................       set_pwm1_duty(213);delay_ms(25); 
+014D:  MOVLW  D5
+014E:  MOVWF  15
+014F:  MOVLW  19
+0150:  MOVWF  21
+0151:  CALL   004
+....................       set_pwm1_duty(219);delay_ms(25); 
+0152:  MOVLW  DB
+0153:  MOVWF  15
+0154:  MOVLW  19
+0155:  MOVWF  21
+0156:  CALL   004
+....................       set_pwm1_duty(226);delay_ms(25); 
+0157:  MOVLW  E2
+0158:  MOVWF  15
+0159:  MOVLW  19
+015A:  MOVWF  21
+015B:  CALL   004
+....................       set_pwm1_duty(232);delay_ms(25); 
+015C:  MOVLW  E8
+015D:  MOVWF  15
+015E:  MOVLW  19
+015F:  MOVWF  21
+0160:  CALL   004
+....................       set_pwm1_duty(237);delay_ms(25); 
+0161:  MOVLW  ED
+0162:  MOVWF  15
+0163:  MOVLW  19
+0164:  MOVWF  21
+0165:  CALL   004
+....................       set_pwm1_duty(242);delay_ms(25); 
+0166:  MOVLW  F2
+0167:  MOVWF  15
+0168:  MOVLW  19
+0169:  MOVWF  21
+016A:  CALL   004
+....................       set_pwm1_duty(247);delay_ms(25); 
+016B:  MOVLW  F7
+016C:  MOVWF  15
+016D:  MOVLW  19
+016E:  MOVWF  21
+016F:  CALL   004
+....................       set_pwm1_duty(252);delay_ms(25); 
+0170:  MOVLW  FC
+0171:  MOVWF  15
+0172:  MOVLW  19
+0173:  MOVWF  21
+0174:  CALL   004
+....................       // Platô 
+....................       set_pwm1_duty(255);delay_ms(200); 
+0175:  MOVLW  FF
+0176:  MOVWF  15
+0177:  MOVLW  C8
+0178:  MOVWF  21
+0179:  CALL   004
+....................  
+....................       // Descida 2,4 
+....................       set_pwm1_duty(240);delay_ms(25); 
+017A:  MOVLW  F0
+017B:  MOVWF  15
+017C:  MOVLW  19
+017D:  MOVWF  21
+017E:  CALL   004
+....................       set_pwm1_duty(230);delay_ms(25); 
+017F:  MOVLW  E6
+0180:  MOVWF  15
+0181:  MOVLW  19
+0182:  MOVWF  21
+0183:  CALL   004
+....................       set_pwm1_duty(220);delay_ms(25); 
+0184:  MOVLW  DC
+0185:  MOVWF  15
+0186:  MOVLW  19
+0187:  MOVWF  21
+0188:  CALL   004
+....................       set_pwm1_duty(190);delay_ms(25); 
+0189:  MOVLW  BE
+018A:  MOVWF  15
+018B:  MOVLW  19
+018C:  MOVWF  21
+018D:  CALL   004
+....................       set_pwm1_duty(180);delay_ms(25); 
+018E:  MOVLW  B4
+018F:  MOVWF  15
+0190:  MOVLW  19
+0191:  MOVWF  21
+0192:  CALL   004
+....................       set_pwm1_duty(170);delay_ms(25); 
+0193:  MOVLW  AA
+0194:  MOVWF  15
+0195:  MOVLW  19
+0196:  MOVWF  21
+0197:  CALL   004
+....................       set_pwm1_duty(164);delay_ms(25); 
+0198:  MOVLW  A4
+0199:  MOVWF  15
+019A:  MOVLW  19
+019B:  MOVWF  21
+019C:  CALL   004
+....................       set_pwm1_duty(159);delay_ms(25); 
+019D:  MOVLW  9F
+019E:  MOVWF  15
+019F:  MOVLW  19
+01A0:  MOVWF  21
+01A1:  CALL   004
+....................       set_pwm1_duty(151);delay_ms(25); 
+01A2:  MOVLW  97
+01A3:  MOVWF  15
+01A4:  MOVLW  19
+01A5:  MOVWF  21
+01A6:  CALL   004
+....................       set_pwm1_duty(148);delay_ms(25); 
+01A7:  MOVLW  94
+01A8:  MOVWF  15
+01A9:  MOVLW  19
+01AA:  MOVWF  21
+01AB:  CALL   004
+....................       set_pwm1_duty(143);delay_ms(25); 
+01AC:  MOVLW  8F
+01AD:  MOVWF  15
+01AE:  MOVLW  19
+01AF:  MOVWF  21
+01B0:  CALL   004
+....................       set_pwm1_duty(138);delay_ms(25); 
+01B1:  MOVLW  8A
+01B2:  MOVWF  15
+01B3:  MOVLW  19
+01B4:  MOVWF  21
+01B5:  CALL   004
+....................       set_pwm1_duty(133);delay_ms(25); 
+01B6:  MOVLW  85
+01B7:  MOVWF  15
+01B8:  MOVLW  19
+01B9:  MOVWF  21
+01BA:  CALL   004
+....................       set_pwm1_duty(127);delay_ms(25); 
+01BB:  MOVLW  7F
+01BC:  MOVWF  15
+01BD:  MOVLW  19
+01BE:  MOVWF  21
+01BF:  CALL   004
+....................       set_pwm1_duty(100);delay_ms(25); 
+01C0:  MOVLW  64
+01C1:  MOVWF  15
+01C2:  MOVLW  19
+01C3:  MOVWF  21
+01C4:  CALL   004
+....................       set_pwm1_duty(80);delay_ms(25); 
+01C5:  MOVLW  50
+01C6:  MOVWF  15
+01C7:  MOVLW  19
+01C8:  MOVWF  21
+01C9:  CALL   004
+....................       set_pwm1_duty(71);delay_ms(25); 
+01CA:  MOVLW  47
+01CB:  MOVWF  15
+01CC:  MOVLW  19
+01CD:  MOVWF  21
+01CE:  CALL   004
+....................       set_pwm1_duty(63);delay_ms(25); 
+01CF:  MOVLW  3F
+01D0:  MOVWF  15
+01D1:  MOVLW  19
+01D2:  MOVWF  21
+01D3:  CALL   004
+....................       set_pwm1_duty(50);delay_ms(25); 
+01D4:  MOVLW  32
+01D5:  MOVWF  15
+01D6:  MOVLW  19
+01D7:  MOVWF  21
+01D8:  CALL   004
+....................       set_pwm1_duty(40);delay_ms(25); 
+01D9:  MOVLW  28
+01DA:  MOVWF  15
+01DB:  MOVLW  19
+01DC:  MOVWF  21
+01DD:  CALL   004
+....................       set_pwm1_duty(31);delay_ms(25); 
+01DE:  MOVLW  1F
+01DF:  MOVWF  15
+01E0:  MOVLW  19
+01E1:  MOVWF  21
+01E2:  CALL   004
+....................       set_pwm1_duty(29);delay_ms(25); 
+01E3:  MOVLW  1D
+01E4:  MOVWF  15
+01E5:  MOVLW  19
+01E6:  MOVWF  21
+01E7:  CALL   004
+....................       set_pwm1_duty(27);delay_ms(25); 
+01E8:  MOVLW  1B
+01E9:  MOVWF  15
+01EA:  MOVLW  19
+01EB:  MOVWF  21
+01EC:  CALL   004
+....................       set_pwm1_duty(25);delay_ms(25); 
+01ED:  MOVLW  19
+01EE:  MOVWF  15
+01EF:  MOVWF  21
+01F0:  CALL   004
+....................       set_pwm1_duty(23);delay_ms(25); 
+01F1:  MOVLW  17
+01F2:  MOVWF  15
+01F3:  MOVLW  19
+01F4:  MOVWF  21
+01F5:  CALL   004
+....................       set_pwm1_duty(19);delay_ms(25); 
+01F6:  MOVLW  13
+01F7:  MOVWF  15
+01F8:  MOVLW  19
+01F9:  MOVWF  21
+01FA:  CALL   004
+....................       set_pwm1_duty(17);delay_ms(25); 
+01FB:  MOVLW  11
+01FC:  MOVWF  15
+01FD:  MOVLW  19
+01FE:  MOVWF  21
+01FF:  CALL   004
+....................       set_pwm1_duty(15);delay_ms(25); 
+0200:  MOVLW  0F
+0201:  MOVWF  15
+0202:  MOVLW  19
+0203:  MOVWF  21
+0204:  CALL   004
+....................       set_pwm1_duty(14);delay_ms(50); 
+0205:  MOVLW  0E
+0206:  MOVWF  15
+0207:  MOVLW  32
+0208:  MOVWF  21
+0209:  CALL   004
+....................       set_pwm1_duty(13);delay_ms(25); 
+020A:  MOVLW  0D
+020B:  MOVWF  15
+020C:  MOVLW  19
+020D:  MOVWF  21
+020E:  CALL   004
+....................       set_pwm1_duty(12);delay_ms(50); 
+020F:  MOVLW  0C
+0210:  MOVWF  15
+0211:  MOVLW  32
+0212:  MOVWF  21
+0213:  CALL   004
+....................       set_pwm1_duty(11);delay_ms(25); 
+0214:  MOVLW  0B
+0215:  MOVWF  15
+0216:  MOVLW  19
+0217:  MOVWF  21
+0218:  CALL   004
+....................       set_pwm1_duty(10);delay_ms(100); 
+0219:  MOVLW  0A
+021A:  MOVWF  15
+021B:  MOVLW  64
+021C:  MOVWF  21
+021D:  CALL   004
+....................       set_pwm1_duty(9);delay_ms(100); 
+021E:  MOVLW  09
+021F:  MOVWF  15
+0220:  MOVLW  64
+0221:  MOVWF  21
+0222:  CALL   004
+....................       set_pwm1_duty(8);delay_ms(100); 
+0223:  MOVLW  08
+0224:  MOVWF  15
+0225:  MOVLW  64
+0226:  MOVWF  21
+0227:  CALL   004
+....................       set_pwm1_duty(7);delay_ms(125); 
+0228:  MOVLW  07
+0229:  MOVWF  15
+022A:  MOVLW  7D
+022B:  MOVWF  21
+022C:  CALL   004
+....................       set_pwm1_duty(6);delay_ms(100); 
+022D:  MOVLW  06
+022E:  MOVWF  15
+022F:  MOVLW  64
+0230:  MOVWF  21
+0231:  CALL   004
+....................       set_pwm1_duty(5);delay_ms(100); 
+0232:  MOVLW  05
+0233:  MOVWF  15
+0234:  MOVLW  64
+0235:  MOVWF  21
+0236:  CALL   004
+....................       set_pwm1_duty(4);delay_ms(100); 
+0237:  MOVLW  04
+0238:  MOVWF  15
+0239:  MOVLW  64
+023A:  MOVWF  21
+023B:  CALL   004
+....................       set_pwm1_duty(3);delay_ms(150); 
+023C:  MOVLW  03
+023D:  MOVWF  15
+023E:  MOVLW  96
+023F:  MOVWF  21
+0240:  CALL   004
+....................  
+....................    } 
+0241:  GOTO   085
+.................... } 
+....................  
+0242:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F3A   HS NOWDT NOPUT NODEBUG NOPROTECT NOBROWNOUT NOLVP NOCPD NOWRT

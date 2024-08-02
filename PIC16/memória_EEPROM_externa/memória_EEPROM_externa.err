@@ -1,0 +1,8 @@
+>>> Warning 208 "memória_EEPROM_externa.c" Line 42(1,23): Function not void and does not return a value  WRITE_FLOAT_EXT_EEPROM
+*** Error 12 "memória_EEPROM_externa.c" Line 80(12,13): Undefined identifier  -- lcd_ini
+*** Error 12 "memória_EEPROM_externa.c" Line 84(12,23): Undefined identifier   lcd_escreve
+*** Error 12 "memória_EEPROM_externa.c" Line 97(14,25): Undefined identifier   lcd_escreve
+*** Error 12 "memória_EEPROM_externa.c" Line 98(15,26): Undefined identifier   lcd_escreve
+*** Error 12 "memória_EEPROM_externa.c" Line 108(15,26): Undefined identifier   lcd_escreve
+*** Error 12 "memória_EEPROM_externa.c" Line 116(15,26): Undefined identifier   lcd_escreve
+      6 Errors,  1 Warnings.

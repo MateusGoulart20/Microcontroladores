@@ -1,0 +1,28 @@
+ÀÄmain
+   ÀÄMAIN  0/164  Ram=0
+      ÃÄ??0??
+      ÃÄ@delay_ms1  0/22  Ram=1
+      ÀÄtimer  0/160  Ram=1
+         ÀÄtimer  (Inline)  Ram=14
+            ÃÄ@DIV88  0/21  Ram=3
+            ÃÄ@DIV88  0/21  Ram=3
+            ÃÄ@MUL1616  (Inline)  Ram=5
+            ÃÄ@DIV1616  (Inline)  Ram=5
+            ÃÄtime  0/107  Ram=3
+            ³  ÃÄ@const66  0/15  Ram=0
+            ³  ÃÄ@delay_us1  0/15  Ram=1
+            ³  ÃÄ@const66  0/15  Ram=0
+            ³  ÃÄ@delay_us1  0/15  Ram=1
+            ³  ÃÄ@const66  0/15  Ram=0
+            ³  ÃÄ@delay_us1  0/15  Ram=1
+            ³  ÃÄ@const66  0/15  Ram=0
+            ³  ÀÄ@delay_us1  0/15  Ram=1
+            ÀÄtime  0/107  Ram=3
+               ÃÄ@const66  0/15  Ram=0
+               ÃÄ@delay_us1  0/15  Ram=1
+               ÃÄ@const66  0/15  Ram=0
+               ÃÄ@delay_us1  0/15  Ram=1
+               ÃÄ@const66  0/15  Ram=0
+               ÃÄ@delay_us1  0/15  Ram=1
+               ÃÄ@const66  0/15  Ram=0
+               ÀÄ@delay_us1  0/15  Ram=1
